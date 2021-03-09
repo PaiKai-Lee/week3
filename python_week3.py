@@ -8,14 +8,10 @@ dataList=response.json()["result"]["results"]
 
 with open("data.txt","w",encoding="utf-8") as file :
     for data in dataList:
-        indexJpg=data["file"].lower().find(".jpg")
-        print(data["stitle"],indexJpg)
-        if indexJpg==-1:
-            indexPng=data["file"].lower().find(".png")
-            firstPng=data["file"][:indexPng]
-            file.write(data["stitle"]+","+data["longitude"]+","+data["latitude"]+","+firstPng+".png"+"\n")
-        else:
-            firstJpg=data["file"][:indexJpg]
-            file.write(data["stitle"]+","+data["longitude"]+","+data["latitude"]+","+firstJpg+".jpg"+"\n")
+        dataFile=data["file"]
+        fileList=dataFile.split("http://")
+        firstImg=fileList[1]
+        print(firstImg)
+        file.write(data["stitle"]+","+data["longitude"]+","+data["latitude"]+","+"http://"+firstImg+"\n")
 
 
