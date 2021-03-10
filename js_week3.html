@@ -32,7 +32,6 @@
 				display:flex; flex-wrap:wrap;
 				justify-content:center;
 			}
-
 			.box{
 				flex:none;
 				width:280px;height:auto;margin:5px;
@@ -60,14 +59,27 @@
 			}
 		</style>
 		<script>
-			function init(){
-				var frame=document.getElementById("frame");
-				var newImg=document.createElement("img");
-				frame.appendChild(newImg);
-			}
+			// function init(){
+			// 	var frame = document.getElementById("frame");
+			// 	var req =new XMLHttpRequest();
+			// 	req.open("get","https://padax.github.io/taipei-day-trip-resources/taipei-attractions.json",true);
+			// 	req.onload=function(){
+			// 		var data = JSON.parse(req.responseText);
+			// 		var dataArr=data["result"]["results"];
+			// 		for (let i=0;i<8;i++){
+			// 			var dataImg=dataArr[i]["file"]
+			// 			var imgList=dataImg.split("http://");
+			// 			var firstImg="http://"+imgList[1];
+			// 			var newImg = document.createElement("img");
+			// 			newImg.src=firstImg
+			// 			frame.appendChild(newImg);
+			// 		}
+			// 	}
+			// 	req.send();
+			// }	
 		</script>
 	</head>
-	<body onload="init();"	style="font-size:20px;">
+	<body onload="init();" style="font-size:20px;">
 	<header>
 		<div class="web">
 			My website
@@ -94,7 +106,7 @@
 	<main>
 		<div class="box" id="frame">
 			<img src="Vector.jpg"></img>
-			<div style="background-color:#77ddff;width:100%;margin-top:0px;">Title1</div>
+			<!-- <div style="background-color:#77ddff;width:100%;margin-top:0px;">Title1</div> -->
 		</div>
 		<div class="box">
 			<img src="Vector.jpg"></img>
