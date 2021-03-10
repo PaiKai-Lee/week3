@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8"></meta>
+		<meta name="viewport" content="width=device-width" />
+		<title>RWD training</title>
+		<style type="text/css">
+			body{
+				margin:0px;
+			}
+			header{
+				display:flex;
+				margin:5px;
+
+			}
+			.web{flex:auto;}
+			.side{flex:none;margin-left:15px;}
+			.burger{
+				flex:none;
+				width:18px;
+				height:auto;
+				display:none;
+				margin-right:5px;
+			}
+			.bar{
+				font-size:200%;
+				height:300px;margin-bottom:15px;
+				background-color:#77ddff;
+				text-align:center;line-height:300px;
+			}
+			main{
+				display:flex; flex-wrap:wrap;
+				justify-content:center;
+			}
+
+			.box{
+				flex:none;
+				width:280px;height:auto;margin:5px;
+				text-align:center;
+				background-color:#77ddff;
+			}
+			main img{
+				width:100%;height:auto;
+			}
+			@media screen and (max-width:1200px){
+				.box{
+					width:45%;height:auto;
+				}
+			}
+			@media screen and (max-width:600px){
+				.box{
+					width:90%;
+				}
+				.side{
+					display:none;
+				}
+				.burger{
+					display:block;
+				}
+			}
+		</style>
+		<script>
+			function init(){
+				var frame=document.getElementById("frame");
+				var newImg=document.createElement("img");
+				frame.appendChild(newImg);
+			}
+		</script>
+	</head>
+	<body onload="init();"	style="font-size:20px;">
+	<header>
+		<div class="web">
+			My website
+		</div>
+		<div class="side">
+			item1
+		</div>
+		<div class="side">
+			item2
+		</div>
+		<div class="side">
+			item3
+		</div>
+		<div class="side">
+			item4
+		</div>
+		<div class="burger">
+			<img style="width:100%;height:auto;" src="meunicon.png">
+		</div>
+	</header>
+	<div class="bar">
+		Welcome to MyHome
+	</div>
+	<main>
+		<div class="box" id="frame">
+			<img src="Vector.jpg"></img>
+			<div style="background-color:#77ddff;width:100%;margin-top:0px;">Title1</div>
+		</div>
+		<div class="box">
+			<img src="Vector.jpg"></img>
+			<div style="background-color:#77ddff;width:100%;margin-top:0px;">Title2</div>
+		</div>
+		<div class="box">
+			<img src="Vector.jpg"></img>
+			<div style="background-color:#77ddff;width:100%;margin-top:0px;">Title3</div>
+		</div>
+		<div class="box">
+			<img src="Vector.jpg"></img>
+			<div style="background-color:#77ddff;width:100%;margin-top:0px;">Title4</div>
+		</div>
+	</main>
+	<main>
+		<div class="box">
+			<img src="Vector.jpg"></img>
+			<div style="background-color:#77ddff;width:100%;margin-top:0px;">Title5</div>
+		</div>
+		<div class="box">
+			<img src="Vector.jpg"></img>
+			<div style="background-color:#77ddff;width:100%;margin-top:0px;">Title6</div>
+		</div>
+		<div class="box">
+			<img src="Vector.jpg"></img>
+			<div style="background-color:#77ddff;width:100%;margin-top:0px;">Title7</div>
+		</div>
+		<div class="box">
+			<img src="Vector.jpg"></img>
+			<div style="background-color:#77ddff;width:100%;margin-top:0px;">Title8</div>
+		</div>
+	</main>
+	</body>
+</html>
