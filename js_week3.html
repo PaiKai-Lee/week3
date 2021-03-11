@@ -11,7 +11,6 @@
 			header{
 				display:flex;
 				margin:5px;
-
 			}
 			.web{flex:auto;}
 			.side{flex:none;margin-left:15px;}
@@ -28,33 +27,41 @@
 				background-color:#77ddff;
 				text-align:center;line-height:300px;
 			}
-			main{
-				display:flex; flex-wrap:wrap;
-				justify-content:center;
+			.wrap{
+				width: 1200px;
+				margin: auto;
+				
 			}
-			.box{
-				flex:none;
-				width:280px;height:auto;margin:5px;
-				text-align:center;
-				background-color:#77ddff;
+			.frame{
+				margin: 10px;
+				display: flex; flex-wrap: wrap;
+				justify-content: center;
 			}
-			main img{
-				width:100%;height:auto;
+			.container{
+				background-color: lightskyblue;
+				width: 270px;
+				height: auto;
+				margin: 10px;
+			}
+			.item{
+				width: 100%;
+				height: auto;
+				object-fit: cover;
+			}
+			.word{
+				text-align: center;
 			}
 			@media screen and (max-width:1200px){
-				.box{
-					width:45%;height:auto;
+				.wrap{
+					width: 100%;
+				}
+				.container{
+					width: 45%; height: auto;
 				}
 			}
 			@media screen and (max-width:600px){
-				.box{
-					width:90%;
-				}
-				.side{
-					display:none;
-				}
-				.burger{
-					display:block;
+				.container{
+					width: 90%;
 				}
 			}
 		</style>
@@ -79,7 +86,7 @@
 			// }	
 		</script>
 	</head>
-	<body onload="init();" style="font-size:20px;">
+	<body style="font-size:20px;">
 	<header>
 		<div class="web">
 			My website
@@ -103,40 +110,42 @@
 	<div class="bar">
 		Welcome to MyHome
 	</div>
-	<main>
-		<div class="box" id="frame">
-			<img src="Vector.jpg"></img>
-			<!-- <div style="background-color:#77ddff;width:100%;margin-top:0px;">Title1</div> -->
+	<main class="wrap">
+		<div class="frame">
+			<div class="container">
+				<img src="Vector.jpg" alt="" class="item">
+				<div class="word">Title1</div>
+			</div>
+			<div class="container">
+				<img src="Vector.jpg" alt="" class="item">
+				<div class="word">title2</div>
+			</div>
+			<div class="container">
+				<img src="Vector.jpg" alt="" class="item">
+				<div class="word">title3</div>
+			</div>
+			<div class="container">
+				<img src="Vector.jpg" alt="" class="item">
+				<div class="word">title4</div>
+			</div>
 		</div>
-		<div class="box">
-			<img src="Vector.jpg"></img>
-			<div style="background-color:#77ddff;width:100%;margin-top:0px;">Title2</div>
-		</div>
-		<div class="box">
-			<img src="Vector.jpg"></img>
-			<div style="background-color:#77ddff;width:100%;margin-top:0px;">Title3</div>
-		</div>
-		<div class="box">
-			<img src="Vector.jpg"></img>
-			<div style="background-color:#77ddff;width:100%;margin-top:0px;">Title4</div>
-		</div>
-	</main>
-	<main>
-		<div class="box">
-			<img src="Vector.jpg"></img>
-			<div style="background-color:#77ddff;width:100%;margin-top:0px;">Title5</div>
-		</div>
-		<div class="box">
-			<img src="Vector.jpg"></img>
-			<div style="background-color:#77ddff;width:100%;margin-top:0px;">Title6</div>
-		</div>
-		<div class="box">
-			<img src="Vector.jpg"></img>
-			<div style="background-color:#77ddff;width:100%;margin-top:0px;">Title7</div>
-		</div>
-		<div class="box">
-			<img src="Vector.jpg"></img>
-			<div style="background-color:#77ddff;width:100%;margin-top:0px;">Title8</div>
+		<div class="frame">
+			<div class="container">
+				<img src="Vector.jpg" alt="" class="item">
+				<div class="word">title5</div>
+			</div>
+			<div class="container">
+				<img src="Vector.jpg" alt="" class="item">
+				<div class="word">title6</div>
+			</div>
+			<div class="container">
+				<img src="Vector.jpg" alt="" class="item">
+				<div class="word">title7</div>
+			</div>
+			<div class="container">
+				<img src="Vector.jpg" alt="" class="item">
+				<div class="word">title8</div>
+			</div>
 		</div>
 	</main>
 	</body>
