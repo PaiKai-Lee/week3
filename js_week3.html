@@ -30,12 +30,9 @@
 			.wrap{
 				width: 1200px;
 				margin: auto;
-				
-			}
-			.frame{
-				margin: 10px;
 				display: flex; flex-wrap: wrap;
 				justify-content: center;
+				
 			}
 			.container{
 				background-color: lightskyblue;
@@ -66,27 +63,37 @@
 			}
 		</style>
 		<script>
-			// function init(){
-			// 	var frame = document.getElementById("frame");
-			// 	var req =new XMLHttpRequest();
-			// 	req.open("get","https://padax.github.io/taipei-day-trip-resources/taipei-attractions.json",true);
-			// 	req.onload=function(){
-			// 		var data = JSON.parse(req.responseText);
-			// 		var dataArr=data["result"]["results"];
-			// 		for (let i=0;i<8;i++){
-			// 			var dataImg=dataArr[i]["file"]
-			// 			var imgList=dataImg.split("http://");
-			// 			var firstImg="http://"+imgList[1];
-			// 			var newImg = document.createElement("img");
-			// 			newImg.src=firstImg
-			// 			frame.appendChild(newImg);
-			// 		}
-			// 	}
-			// 	req.send();
-			// }	
+			function init(){
+				var frame = document.getElementById("frame");
+				var req =new XMLHttpRequest();
+				req.open("get","https://padax.github.io/taipei-day-trip-resources/taipei-attractions.json",true);
+				req.onload=function(){
+					var data = JSON.parse(req.responseText);
+					var dataArr=data["result"]["results"];
+					for (let i=0;i<8;i++){
+						var dataImg=dataArr[i]["file"];
+						var imgList=dataImg.split("http://");
+						var firstImg="http://"+imgList[1];
+						var stitle=dataArr[i]["stitle"];
+						var newDiv=document.createElement("div")
+						newDiv.className="container";
+						newDiv.id="box";
+						var newImg = document.createElement("img");
+						newImg.src=firstImg;
+						newImg.className="item";
+						var word=document.createElement("div");
+						word.className="word";
+						word.textContent=stitle;
+						frame.appendChild(newDiv);
+						newDiv.appendChild(newImg);
+						newDiv.appendChild(word);
+					}
+				}
+				req.send();
+			}	
 		</script>
 	</head>
-	<body style="font-size:20px;">
+	<body onload="init();" style="font-size:20px;">
 	<header>
 		<div class="web">
 			My website
@@ -110,43 +117,7 @@
 	<div class="bar">
 		Welcome to MyHome
 	</div>
-	<main class="wrap">
-		<div class="frame">
-			<div class="container">
-				<img src="Vector.jpg" alt="" class="item">
-				<div class="word">Title1</div>
-			</div>
-			<div class="container">
-				<img src="Vector.jpg" alt="" class="item">
-				<div class="word">title2</div>
-			</div>
-			<div class="container">
-				<img src="Vector.jpg" alt="" class="item">
-				<div class="word">title3</div>
-			</div>
-			<div class="container">
-				<img src="Vector.jpg" alt="" class="item">
-				<div class="word">title4</div>
-			</div>
-		</div>
-		<div class="frame">
-			<div class="container">
-				<img src="Vector.jpg" alt="" class="item">
-				<div class="word">title5</div>
-			</div>
-			<div class="container">
-				<img src="Vector.jpg" alt="" class="item">
-				<div class="word">title6</div>
-			</div>
-			<div class="container">
-				<img src="Vector.jpg" alt="" class="item">
-				<div class="word">title7</div>
-			</div>
-			<div class="container">
-				<img src="Vector.jpg" alt="" class="item">
-				<div class="word">title8</div>
-			</div>
-		</div>
+	<main class="wrap" id="frame">
 	</main>
 	</body>
 </html>
