@@ -36,29 +36,40 @@
 			}
 			.container{
 				background-color: lightskyblue;
-				width: 270px;
+				width: 280px;
 				height: auto;
 				margin: 10px;
 			}
 			.item{
 				width: 100%;
-				height: auto;
-				object-fit: cover;
+				height: 75%;
+				margin: 0;
 			}
 			.word{
 				text-align: center;
+				height:25%;
+				margin:auto;
 			}
 			@media screen and (max-width:1200px){
 				.wrap{
 					width: 100%;
 				}
 				.container{
-					width: 45%; height: auto;
+					width: 45%;
+				}
+				.word{
+					font-size: 1.8rem;
 				}
 			}
 			@media screen and (max-width:600px){
 				.container{
 					width: 90%;
+				}
+				.side{
+					display: none;
+				}
+				.burger{
+					display: block;
 				}
 			}
 		</style>
@@ -84,8 +95,8 @@
 						var word=document.createElement("div");
 						word.className="word";
 						word.textContent=stitle;
-						frame.appendChild(newDiv);
-						newDiv.appendChild(newImg);
+						frame.appendChild(newDiv);//將div節點加入main節點中
+						newDiv.appendChild(newImg);//將圖片及文字加入div節點中
 						newDiv.appendChild(word);
 					}
 				}
@@ -93,7 +104,7 @@
 			}	
 		</script>
 	</head>
-	<body onload="init();" style="font-size:20px;">
+	<body onload="init();" style="font-size:20px;background-color: mintcream;">
 	<header>
 		<div class="web">
 			My website
@@ -111,7 +122,7 @@
 			item4
 		</div>
 		<div class="burger">
-			<img style="width:100%;height:auto;" src="meunicon.png">
+			<img style="width:100%;height:auto;" src="/img/meunicon.png">
 		</div>
 	</header>
 	<div class="bar">
