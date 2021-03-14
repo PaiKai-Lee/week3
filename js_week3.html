@@ -50,6 +50,10 @@
 				height:25%;
 				margin:auto;
 			}
+			.more{
+				display: flex;
+				justify-content: center;
+			}
 			@media screen and (max-width:1200px){
 				.wrap{
 					width: 100%;
@@ -76,29 +80,42 @@
 		<script>
 			function init(){
 				var frame = document.getElementById("frame");
+				var btn = document.getElementById("btn");
 				var req =new XMLHttpRequest();
-				req.open("get","https://padax.github.io/taipei-day-trip-resources/taipei-attractions.json",true);
+				var times = 1;
+				var i = 0;
+				var loading = ()=>{
+					i+=8;
+					times+=1;
+					loadingData(i,times);
+				}
+				var loadingData;
+				btn.addEventListener("click",loading);
+				req.open("get","https://padax.github.io/taipei-day-trip-resources/taipei-attractions.json",true); 
 				req.onload=function(){
 					var data = JSON.parse(req.responseText);
 					var dataArr=data["result"]["results"];
-					for (let i=0;i<8;i++){
-						var dataImg=dataArr[i]["file"];
-						var imgList=dataImg.split("http://");
-						var firstImg="http://"+imgList[1];
-						var stitle=dataArr[i]["stitle"];
-						var newDiv=document.createElement("div")
-						newDiv.className="container";
-						newDiv.id="box";
-						var newImg = document.createElement("img");
-						newImg.src=firstImg;
-						newImg.className="item";
-						var word=document.createElement("div");
-						word.className="word";
-						word.textContent=stitle;
-						frame.appendChild(newDiv);//將div節點加入main節點中
-						newDiv.appendChild(newImg);//將圖片及文字加入div節點中
-						newDiv.appendChild(word);
+					loadingData=(i,n)=>{
+						for (i=i;i<8*times;i++){
+							var dataImg=dataArr[i]["file"];
+							var imgList=dataImg.split("http://");
+							var firstImg="http://"+imgList[1];
+							var stitle=dataArr[i]["stitle"];
+							var newDiv=document.createElement("div")
+							newDiv.className="container";
+							newDiv.id="box";
+							var newImg = document.createElement("img");
+							newImg.src=firstImg;
+							newImg.className="item";
+							var word=document.createElement("div");
+							word.className="word";
+							word.textContent=stitle;
+							frame.appendChild(newDiv);//將div節點加入main節點中
+							newDiv.appendChild(newImg);//將圖片及文字加入div節點中
+							newDiv.appendChild(word);
+						}
 					}
+				loadingData(i,times);
 				}
 				req.send();
 			}	
@@ -130,5 +147,8 @@
 	</div>
 	<main class="wrap" id="frame">
 	</main>
+	<div class="more">
+		<button class="loading" id="btn">Load More</button>
+	</div>
 	</body>
 </html>
